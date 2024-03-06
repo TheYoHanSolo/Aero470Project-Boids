@@ -64,20 +64,13 @@ while 1:
     # Moon's position is relative to Earth
     moon.pos.y = rME.mag*math.sin(thetaM) + earth.pos.y
     moon.pos.x = rME.mag*math.cos(thetaM) + earth.pos.x
-    
-    
-    #
+
     #scene.camera.pos = earth.pos + vec(rME.mag*math.cos(thetaM), rME.mag*math.sin(thetaM), 0);
     scene.camera.follow(moon)
-
-    
-    #earth.velocity.y = v.mag*math.cos(theta)
-    #earth.velocity.x = v.mag*math.sin(theta)
     
     theta0 = theta
     theta0M = thetaM
     
-    #print(earth.pos.mag)
     
     
     
