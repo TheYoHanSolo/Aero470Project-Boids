@@ -15,6 +15,8 @@ class Boid:
         z = rand.uniform(simulationArea[2][0], simulationArea[2][1])
 
         self.position = vec(x, y, z)
+        self.velocity = vec(0, 0, 0)
+        
         self.birb = cone(pos = self.position, axis = vec(1, 0, 0), make_trail = makeTrails)
 
 
