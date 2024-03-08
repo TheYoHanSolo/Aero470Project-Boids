@@ -19,8 +19,9 @@ class Boid:
 
         self.birb = cone(pos = self.position, axis = vec(1, 0, 0), make_trail = makeTrails)
 
-    def rule1(self,flock,numBirds):
+    def rule1(self,flock):
         flock = flock.members
+        N = flock.nBoids
         birb = Boid.birb
         pcj = 0
         for birb in flock:
@@ -29,7 +30,7 @@ class Boid:
             else:
                 pcj = pcj + birb.pos
     
-        pcj = pcj/(numBirds - 1)
+        pcj = pcj/(N - 1)
         v1 = (pcj - self.birb.pos)/100
         return v1
 
@@ -47,6 +48,20 @@ class Boid:
                 else:
                     pass
         return c
+
+    def rule3(self,flock):
+        flock = flock.members
+        N = flock.nBoids
+        birb = Boid.birb
+        pvj = vector(0,0,0)
+        for birb in flock:
+            if birb == self.birb:
+                pass
+            else:
+                pvj = pvj + birb.velocity
+        pvj = pvj/(N-1)
+        v3 = (pvj - self.velocity)/8
+        return v3
 
 class Flock:
 
