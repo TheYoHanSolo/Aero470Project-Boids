@@ -8,7 +8,7 @@ import math as m
 
 class Boid:
 
-    def __init__(self, simulationArea = [ [0, 10], [0, 10], [0, 10] ], makeTrails = False):
+    def __init__(self, simulationArea = [ [0, 100], [0, 100], [0, 100] ], makeTrails = False):
         
         x = rand.uniform(simulationArea[0][0], simulationArea[0][1])
         y = rand.uniform(simulationArea[1][0], simulationArea[1][1])
@@ -38,12 +38,14 @@ class Boid:
         flock = flock.members
         birb = Boid.birb
         c = vector(0,0,0)
+        boidProx = 5
+
         for birb in flock:
             if birb == self.birb:
                 pass
             else:
                 check = birb.pos - self.birb.pos
-                if check < 100:
+                if check.mag < boidProx:
                     c = c - check
                 else:
                     pass
