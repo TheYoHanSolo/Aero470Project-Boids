@@ -111,7 +111,7 @@ class Flock:
             
             boid.position = boid.position + boid.velocity
             boid.birb.pos = boid.position
-            boid.BoundPosition(xmin,xmax,ymin,ymax,zmim,zmax)
+            boid.BoundPosition(xmin,xmax,ymin,ymax,zmin,zmax)
 
 
 
