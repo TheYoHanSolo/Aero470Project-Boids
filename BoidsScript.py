@@ -11,4 +11,7 @@ import BoidClass as Boid
 
 flock = Boid.Flock()
 
-print(flock.members[0])
+while 1:
+
+    rate(100)
+    flock.moveAllBoids
