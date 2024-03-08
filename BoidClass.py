@@ -56,5 +56,19 @@ class Flock:
         self.nBoids = nBoids
 
 
-        
+    def moveAllBoids(self):
+
+        boid: Boid
+        for boid in self.members:
+
+            v1 = boid.rule1(self, self.nBoids)
+            v2 = boid.rule2(self)
+            
+            boid.velocity = boid.velocity + v1 + v2
+            boid.position = boid.position + boid.velocity
+            boid.birb.pos = boid.position
+
+
+
+    
         
