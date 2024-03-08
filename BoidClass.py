@@ -52,8 +52,8 @@ class Boid:
         return c
 
     def rule3(self,flock):
-        flock = flock.members
         N = flock.nBoids
+        flock = flock.members
         birb = Boid.birb
         pvj = vector(0,0,0)
         for birb in flock:
