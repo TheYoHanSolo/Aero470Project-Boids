@@ -63,6 +63,22 @@ class Boid:
         v3 = (pvj - self.velocity)/8
         return v3
 
+    def BoundPosition(self,xmin,xmax,ymin,ymax,zmin,zmax):
+        if self.birb.pos.x < xmin:
+            self.velocity.x = 10
+        elif self.birb.pos.x > xmax:
+            self.velocity.x = -10
+
+        if self.birb.pos.y < ymin:
+            self.velocity.y = 10
+        elif self.birb.pos.y > ymax:
+            self.velocity.y = -10
+
+        if self.birb.pos.z < zmin:
+            self.velocity.z = 10
+        elif self.birb.pos.z > zmax:
+            self.velocity.z = -10
+
 class Flock:
 
     def __init__(self, nBoids = 10):
