@@ -16,12 +16,12 @@ class Boid:
 
         self.position = vec(x, y, z)
         self.velocity = vec(0, 0, 0)
-        
+
         self.birb = cone(pos = self.position, axis = vec(1, 0, 0), make_trail = makeTrails)
 
     def rule1(self,flock,numBirds):
             pcj = 0
-            for birb in flock
+            for birb in flock:
                 if birb == self.birb:
                     pass
                 else:
