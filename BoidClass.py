@@ -33,5 +33,7 @@ class Boid:
 
 class Flock:
 
-    def __init__(self):
-        pass
+    def __init__(self, nBoids = 10):
+
+        self.members = [Boid() for i in range(nBoids)]
+        
