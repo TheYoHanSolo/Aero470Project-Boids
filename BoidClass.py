@@ -22,10 +22,10 @@ class Boid:
     def rule1(self,flock):
         N = flock.nBoids
         flock = flock.members
-        birb = Boid.birb
+        Birb_i: Boid
         pcj = 0
-        for birb in flock:
-            if birb == self.birb:
+        for Birb_i in flock:
+            if Birb_i == self.birb:
                 pass
             else:
                 pcj = pcj + birb.pos
@@ -36,12 +36,12 @@ class Boid:
 
     def rule2(self,flock):
         flock = flock.members
-        birb = Boid.birb
+        Birb_i: Boid
         c = vector(0,0,0)
         boidProx = 5
 
-        for birb in flock:
-            if birb == self.birb:
+        for Birb_i in flock:
+            if Birb_i == self.birb:
                 pass
             else:
                 check = birb.pos - self.birb.pos
@@ -54,10 +54,10 @@ class Boid:
     def rule3(self,flock):
         N = flock.nBoids
         flock = flock.members
-        birb = Boid.birb
+        Birb_i: Boid
         pvj = vector(0,0,0)
-        for birb in flock:
-            if birb == self.birb:
+        for Birb_i in flock:
+            if Birb_i == self.birb:
                 pass
             else:
                 pvj = pvj + birb.velocity
