@@ -33,7 +33,7 @@ class Boid:
         v1 = (pcj - self.birb.pos)/100
         return v1
 
-    def rule2(self):
+    def rule2(self,flock):
         flock = flock.members
         birb = Boid.birb
         c = vector(0,0,0)
@@ -41,7 +41,12 @@ class Boid:
             if birb == self.birb:
                 pass
             else:
-                pcj = pcj + birb.pos
+                check = birb.pos - self.birb.pos
+                if check < 100:
+                    c = c - check
+                else:
+                    pass
+        return c
 
 class Flock:
 
