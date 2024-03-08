@@ -8,7 +8,7 @@ import math as m
 
 class Boid:
 
-    def __init__(self):
+    def __init__(self, simulationArea = [ [0, 1], [0, 1], [0, 1] ]):
         pass
 
 
