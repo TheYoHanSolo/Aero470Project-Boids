@@ -6,5 +6,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random as rand
 
+import BoidClass as Boid
 
-testItem = box(pos = vec(0, 0, 0))
+
+flock = Boid.Flock()
+
+print(flock.members[0])
