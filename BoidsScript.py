@@ -14,4 +14,4 @@ flock = Boid.Flock()
 while 1:
 
     rate(100)
-    flock.moveAllBoids
+    flock.moveAllBoids()

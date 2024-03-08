@@ -20,8 +20,8 @@ class Boid:
         self.birb = cone(pos = self.position, axis = vec(1, 0, 0), make_trail = makeTrails)
 
     def rule1(self,flock):
-        flock = flock.members
         N = flock.nBoids
+        flock = flock.members
         birb = Boid.birb
         pcj = 0
         for birb in flock:
@@ -78,7 +78,7 @@ class Flock:
         boid: Boid
         for boid in self.members:
 
-            v1 = boid.rule1(self, self.nBoids)
+            v1 = boid.rule1(self)
             v2 = boid.rule2(self)
             v3 = boid.rule3(self)
             
