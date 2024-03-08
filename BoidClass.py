@@ -48,4 +48,8 @@ class Flock:
     def __init__(self, nBoids = 10):
 
         self.members = [Boid() for i in range(nBoids)]
+        self.nBoids = nBoids
+
+
+        
         
