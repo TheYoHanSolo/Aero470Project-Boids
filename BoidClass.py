@@ -1,5 +1,3 @@
-## AERO 470 Team Project Boid Class
-
 from vpython import *
 
 import random as rand
@@ -23,12 +21,12 @@ class Boid:
         N = flock.nBoids
         flock = flock.members
         Birb_i: Boid
-        pcj = 0
+        pcj = vector(0,0,0)
         for Birb_i in flock:
             if Birb_i == self.birb:
                 pass
             else:
-                pcj = pcj + birb.pos
+                pcj = pcj + Birb_i.birb.pos
     
         pcj = pcj/(N - 1)
         v1 = (pcj - self.birb.pos)/100
@@ -44,7 +42,7 @@ class Boid:
             if Birb_i == self.birb:
                 pass
             else:
-                check = birb.pos - self.birb.pos
+                check = Birb_i.birb.pos - self.birb.pos
                 if check.mag < boidProx:
                     c = c - check
                 else:
@@ -60,7 +58,7 @@ class Boid:
             if Birb_i == self.birb:
                 pass
             else:
-                pvj = pvj + birb.velocity
+                pvj = pvj + Birb_i.velocity
         pvj = pvj/(N-1)
         v3 = (pvj - self.velocity)/8
         return v3
@@ -89,4 +87,3 @@ class Flock:
 
 
     
-        
