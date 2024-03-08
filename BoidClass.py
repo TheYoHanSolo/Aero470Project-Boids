@@ -16,7 +16,8 @@ class Boid:
 
         self.position = vec(x, y, z)
 
-
+    def Rule1(self):
+        pass
 
 class Flock:
 
