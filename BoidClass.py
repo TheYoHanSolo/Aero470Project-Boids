@@ -63,6 +63,26 @@ class Boid:
         v3 = (pvj - self.velocity)/8
         return v3
 
+    def BoundPosition(self,xmin,xmax,ymin,ymax,zmin,zmax):
+        if self.birb.pos.x < xmin:
+            self.velocity.x = 10
+        elif self.birb.pos.x > xmax:
+            self.velocity.x = -10
+
+        if self.birb.pos.y < ymin:
+            self.velocity.y = 10
+        elif self.birb.pos.y > ymax:
+            self.velocity.y = -10
+
+        if self.birb.pos.z < zmin:
+            self.velocity.z = 10
+        elif self.birb.pos.z > zmax:
+            self.velocity.z = -10
+
+    def LimitSpeed(self,vlim):
+        if self.velocity.mag > vlim:
+            self.velocity = (self.velocity/self.velocity.mag)*vlim
+
 class Flock:
 
     def __init__(self, nBoids = 10):
@@ -71,7 +91,14 @@ class Flock:
         self.nBoids = nBoids
 
 
-    def moveAllBoids(self):
+    def moveAllBoids(self, limits):
+        xmin = limits[0]
+        xmax = limits[1]
+        ymin = limits[2]
+        ymax = limits[3]
+        zmin = limits[4]
+        zmax = limits[5]
+        vlim = limits[6]
 
         boid: Boid
         for boid in self.members:
@@ -79,10 +106,12 @@ class Flock:
             v1 = boid.rule1(self)
             v2 = boid.rule2(self)
             v3 = boid.rule3(self)
-            
             boid.velocity = boid.velocity + v1 + v2 + v3
+            boid.LimitSpeed(vlim)            
+            
             boid.position = boid.position + boid.velocity
             boid.birb.pos = boid.position
+            boid.BoundPosition(xmin,xmax,ymin,ymax,zmin,zmax)
 
 
 
