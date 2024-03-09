@@ -9,8 +9,8 @@ import random as rand
 import BoidClass as Boid
 
 
-flock = Boid.Flock()
-limits = [-100,100,-100,100,-100,100,0.5]
+flock = Boid.Flock(nBoids = 30)
+limits = [-100,100,-100,100,-100,100,0.75]
 
 while 1:
 
