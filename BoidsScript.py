@@ -16,3 +16,4 @@ while 1:
 
     rate(100)
     flock.moveAllBoids(limits)
+    #scene.camera.pos(flock.members[0].birb.pos)
