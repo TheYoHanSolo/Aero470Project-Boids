@@ -97,6 +97,9 @@ class Boid:
             self.oob = True
             #self.velocity.z = -self.velocity.z
 
+        else:
+            self.oob = False
+
     def LimitSpeed(self,vlim):
         if self.velocity.mag > vlim:
             self.velocity = (self.velocity/self.velocity.mag)*vlim
