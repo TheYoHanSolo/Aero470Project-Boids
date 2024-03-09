@@ -10,7 +10,7 @@ import BoidClass as Boid
 
 
 flock = Boid.Flock()
-limits = [0,100,0,100,0,100,10]
+limits = [-100,100,-100,100,-100,100,0.5]
 
 while 1:
 

@@ -15,7 +15,7 @@ class Boid:
         self.position = vec(x, y, z)
         self.velocity = vec(0, 0, 0)
 
-        self.birb = cone(pos = self.position, axis = vec(1, 0, 0), make_trail = makeTrails)
+        self.birb = cone(pos = self.position, axis = vec(-1, 0, 0), make_trail = makeTrails)
 
     def rule1(self,flock):
         N = flock.nBoids
@@ -66,18 +66,25 @@ class Boid:
     def BoundPosition(self,xmin,xmax,ymin,ymax,zmin,zmax):
         if self.birb.pos.x < xmin:
             self.velocity.x = 10
+            #self.velocity.x = -self.velocity.x
+
         elif self.birb.pos.x > xmax:
             self.velocity.x = -10
+            #self.velocity.x = -self.velocity.x
 
         if self.birb.pos.y < ymin:
             self.velocity.y = 10
+            #self.velocity.y = -self.velocity.y
         elif self.birb.pos.y > ymax:
             self.velocity.y = -10
+            #self.velocity.y = -self.velocity.y
 
         if self.birb.pos.z < zmin:
             self.velocity.z = 10
+            #self.velocity.z = -self.velocity.z
         elif self.birb.pos.z > zmax:
             self.velocity.z = -10
+            #self.velocity.z = -self.velocity.z
 
     def LimitSpeed(self,vlim):
         if self.velocity.mag > vlim:
