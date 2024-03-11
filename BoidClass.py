@@ -161,6 +161,7 @@ class Hawk:
         self.followingFlag = False
         self.targetedBoid = 0
         self.killDistance = killDistance
+        self.huntAttempts = 0
 
         self.hawk = cone(pos = self.position, axis = vec(-1, 0, 0), make_trail = makeTrails)
         self.hawk.color = color.red
@@ -218,6 +219,11 @@ class Hawk:
             self.position = self.position + self.velocity
             self.hawk.pos = self.position
             self.hawk.axis = self.velocity.norm()
+            self.huntAttempts += 1
+
+        if self.huntAttempts > 400:
+
+            self.followingFlag = False
 
 
     def LimitSpeed(self,vlim):
