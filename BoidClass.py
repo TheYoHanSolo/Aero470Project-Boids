@@ -228,7 +228,7 @@ class Hawk:
 
     def LimitSpeed(self,vlim):
 
-        hawkVLim = vlim*1.1
+        hawkVLim = vlim*1.3
         if self.velocity.mag > hawkVLim:
             self.velocity = (self.velocity/self.velocity.mag)*hawkVLim
         
