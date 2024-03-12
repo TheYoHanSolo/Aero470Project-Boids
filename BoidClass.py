@@ -70,7 +70,25 @@ class Boid:
     
     def rule4(self, hawk):
 
+        randAvoid = rand.random()
+        
+        if hawk.huntAttempts > 50:
+        
+            if randAvoid < 0.005:
+                
+                vExtra = vec(rand.randint(-1, 1), rand.randint(-1, 1), rand.randint(-1, 1))*100
+                
+            else:
+                
+                vExtra = vec(0, 0, 0)
+                
+        else:
+            
+            vExtra = vec(0, 0, 0)
+
         v4 = -(hawk.velocity)*0.005
+
+        v4 = v4 + vExtra
 
         return v4
 
@@ -228,7 +246,7 @@ class Hawk:
 
     def LimitSpeed(self,vlim):
 
-        hawkVLim = vlim*1.3
+        hawkVLim = vlim*1.2
         if self.velocity.mag > hawkVLim:
             self.velocity = (self.velocity/self.velocity.mag)*hawkVLim
         

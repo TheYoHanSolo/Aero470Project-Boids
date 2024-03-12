@@ -9,7 +9,7 @@ import random as rand
 import BoidClass as Boid
 
 
-flock = Boid.Flock(nBoids = 30)
+flock = Boid.Flock(nBoids = 50)
 limits = [-100,100,-100,100,-100,100, 0.8]
 
 hawk1 = Boid.Hawk(killDistance=5)
