@@ -94,30 +94,30 @@ class Boid:
 
     def BoundPosition(self,xmin,xmax,ymin,ymax,zmin,zmax):
         if self.birb.pos.x < xmin:
-            self.velocity.x = 10
+            self.velocity.x = 100
             self.oob = True
             #self.velocity.x = -self.velocity.x
 
         elif self.birb.pos.x > xmax:
-            self.velocity.x = -10
+            self.velocity.x = -100
             self.oob = True
             #self.velocity.x = -self.velocity.x
 
         if self.birb.pos.y < ymin:
-            self.velocity.y = 10
+            self.velocity.y = 100
             self.oob = True
             #self.velocity.y = -self.velocity.y
         elif self.birb.pos.y > ymax:
-            self.velocity.y = -10
+            self.velocity.y = -100
             self.oob = True
             #self.velocity.y = -self.velocity.y
 
         if self.birb.pos.z < zmin:
-            self.velocity.z = 10
+            self.velocity.z = 100
             self.oob = True
             #self.velocity.z = -self.velocity.z
         elif self.birb.pos.z > zmax:
-            self.velocity.z = -10
+            self.velocity.z = -100
             self.oob = True
             #self.velocity.z = -self.velocity.z
 
@@ -137,7 +137,9 @@ class Flock:
         self.vLim = 0
 
 
-    def moveAllBoids(self, limits, hawk):
+    def moveAllBoids(self, limits, hawk  = 0):
+
+        
         xmin = limits[0]
         xmax = limits[1]
         ymin = limits[2]
@@ -153,7 +155,12 @@ class Flock:
             v1 = boid.rule1(self)
             v2 = boid.rule2(self)
             v3 = boid.rule3(self)
-            v4 = boid.rule4(hawk)
+
+            if hawk == 0:
+                v4 = vec(0, 0, 0)
+            else:
+                v4 = boid.rule4(hawk)
+                
             boid.velocity = boid.velocity + v1 + v2 + v3 + v4
             boid.LimitSpeed(vlim)            
             
@@ -239,7 +246,7 @@ class Hawk:
             self.hawk.axis = self.velocity.norm()
             self.huntAttempts += 1
 
-        if self.huntAttempts > 400:
+        if self.huntAttempts > 200:
 
             self.followingFlag = False
 

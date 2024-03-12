@@ -9,10 +9,10 @@ import random as rand
 import BoidClass as Boid
 
 
-flock = Boid.Flock(nBoids = 50)
+flock = Boid.Flock(nBoids = 30)
 limits = [-100,100,-100,100,-100,100, 0.8]
 
-hawk1 = Boid.Hawk(killDistance=5)
+hawk1 = Boid.Hawk(killDistance=3)
 
 while 1:
 
@@ -22,7 +22,7 @@ while 1:
         hawk1.findNearestBoid(flock)
 
     else:
-        hawk1.huntTargetedBoid(flock)
+       hawk1.huntTargetedBoid(flock)
 
     flock.moveAllBoids(limits, hawk1)
 
